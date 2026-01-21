@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\src\fastgltf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\src\base64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include\fastgltf\base64.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include\fastgltf\glm_element_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include\fastgltf\parser.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include\fastgltf\tools.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include\fastgltf\types.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include\fastgltf\util.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1A43AEEE-0DCB-3F46-A5D8-BE3E5A3A0479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DC60E617-4017-38FF-A64E-DEFC6BBE5CCA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

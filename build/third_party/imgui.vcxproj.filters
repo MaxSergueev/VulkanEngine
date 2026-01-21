@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui_impl_vulkan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui_impl_sdl2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui\imgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1A43AEEE-0DCB-3F46-A5D8-BE3E5A3A0479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DC60E617-4017-38FF-A64E-DEFC6BBE5CCA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

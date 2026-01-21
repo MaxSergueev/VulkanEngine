@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0550fa9a3b22a144559b8aa74f0a8b30\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7A38AE8E-4FE5-3EA9-9CA6-313B167B1E91}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

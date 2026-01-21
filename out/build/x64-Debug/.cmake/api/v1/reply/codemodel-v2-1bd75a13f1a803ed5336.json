@@ -1,0 +1,294 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "third_party",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party-Debug-a2e0515af5b7021cdaa7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "third_party",
+					"targetIndexes" : 
+					[
+						9,
+						12
+					]
+				},
+				{
+					"build" : "third_party/fastgltf",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.fastgltf-Debug-0cfdca71a47922e34913.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "third_party/fastgltf",
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				},
+				{
+					"build" : "third_party/fmt",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-third_party.fmt-Debug-fd5a00f5076d503b23ce.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "third_party/fmt",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "third_party/SDL",
+					"jsonFile" : "directory-third_party.SDL-Debug-6dfee54828db93ee2523.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 3,
+					"source" : "third_party/SDL",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						10,
+						11
+					]
+				},
+				{
+					"build" : "src",
+					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						5
+					],
+					"name" : "vulkan_guide",
+					"targetIndexes" : 
+					[
+						4,
+						5,
+						9,
+						12
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "fastgltf",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						6,
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "FMT",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "SDL2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 4,
+					"id" : "SDL2::@fea1f6b89ab00462797c",
+					"jsonFile" : "target-SDL2-Debug-d676f59706e1c5f4c802.json",
+					"name" : "SDL2",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "SDL2-static::@fea1f6b89ab00462797c",
+					"jsonFile" : "target-SDL2-static-Debug-4f3994a49fb41227656a.json",
+					"name" : "SDL2-static",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "SDL2_test::@fea1f6b89ab00462797c",
+					"jsonFile" : "target-SDL2_test-Debug-bf27fb67e3fed8674c5c.json",
+					"name" : "SDL2_test",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "SDL2main::@fea1f6b89ab00462797c",
+					"jsonFile" : "target-SDL2main-Debug-9638e06704b59c84e1d4.json",
+					"name" : "SDL2main",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Shaders::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Shaders-Debug-68d929fc9e3202e6aa90.json",
+					"name" : "Shaders",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "engine::@145eef247bfb46b6828c",
+					"jsonFile" : "target-engine-Debug-c0b848eb618ed4797bf7.json",
+					"name" : "engine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "fastgltf::@0f1f61e43472035675cd",
+					"jsonFile" : "target-fastgltf-Debug-336f91f08354633429af.json",
+					"name" : "fastgltf",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "fastgltf_simdjson::@0f1f61e43472035675cd",
+					"jsonFile" : "target-fastgltf_simdjson-Debug-51dcda8e2eac3c097b01.json",
+					"name" : "fastgltf_simdjson",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "fmt::@7291a5c2c450ae686be0",
+					"jsonFile" : "target-fmt-Debug-131d6c5e9bce42c07fa5.json",
+					"name" : "fmt",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "imgui::@037116246cbfaaeb5504",
+					"jsonFile" : "target-imgui-Debug-def92a5b70116856bec7.json",
+					"name" : "imgui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "sdl_headers_copy::@fea1f6b89ab00462797c",
+					"jsonFile" : "target-sdl_headers_copy-Debug-5265316194c249c777a2.json",
+					"name" : "sdl_headers_copy",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "uninstall::@fea1f6b89ab00462797c",
+					"jsonFile" : "target-uninstall-Debug-d0977cc233bcd0cc0847.json",
+					"name" : "uninstall",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "vkbootstrap::@037116246cbfaaeb5504",
+					"jsonFile" : "target-vkbootstrap-Debug-c23df12c3ec4b714ca88.json",
+					"name" : "vkbootstrap",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/out/build/x64-Debug",
+		"source" : "C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

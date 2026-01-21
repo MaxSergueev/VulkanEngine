@@ -1,0 +1,37 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeParseArguments.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCXXCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLanguage.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckStructHasMember.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/FindGit.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/FindPkgConfig.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceRuns.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/third_party/SDL/SDL_config.h.intermediate
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/CMakeLists.txt
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/SDL2.spec.in
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/cmake/CheckCPUArchitecture.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/cmake/macros.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/cmake/sdlchecks.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/cmake/sdlfind.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/cmake/sdlplatform.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/cmake_uninstall.cmake.in
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/include/SDL_config.h.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/include/SDL_revision.h.cmake
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/sdl2-config.in
+C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/third_party/SDL/sdl2.pc.in

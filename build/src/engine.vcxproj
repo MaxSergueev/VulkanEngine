@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{011D8B8B-152C-3A4D-BAD0-D4D177CBB596}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>engine</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">engine.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">engine</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">engine.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">engine</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\bin\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">engine.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">engine</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\bin\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">engine.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">engine</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-debug\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.335.0/Include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-debug\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-debug\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/third_party/SDL/Debug/SDL2d.dll C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\fmt\Debug\fmtd.lib;..\third_party\Debug\vkbootstrap.lib;..\third_party\Debug\imgui.lib;..\third_party\fastgltf\Debug\fastgltf.lib;C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\SDL\Debug\SDL2d.lib;..\third_party\fastgltf\Debug\fastgltf_simdjson.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/Debug/engine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/Debug/engine.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-release\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.335.0/Include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-release\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-release\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/third_party/SDL/Release/SDL2.dll C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\fmt\Release\fmt.lib;..\third_party\Release\vkbootstrap.lib;..\third_party\Release\imgui.lib;..\third_party\fastgltf\Release\fastgltf.lib;C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\SDL\Release\SDL2.lib;..\third_party\fastgltf\Release\fastgltf_simdjson.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/Release/engine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/Release/engine.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-minsizerel\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.335.0/Include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-minsizerel\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-minsizerel\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/third_party/SDL/MinSizeRel/SDL2.dll C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\fmt\MinSizeRel\fmt.lib;..\third_party\MinSizeRel\vkbootstrap.lib;..\third_party\MinSizeRel\imgui.lib;..\third_party\fastgltf\MinSizeRel\fastgltf.lib;C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\SDL\MinSizeRel\SDL2.lib;..\third_party\fastgltf\MinSizeRel\fastgltf_simdjson.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/MinSizeRel/engine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/MinSizeRel/engine.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-relwithdebinfo\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/1.4.335.0/Include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GLM_FORCE_DEPTH_ZERO_TO_ONE;FASTGLTF_USE_CUSTOM_SMALLVECTOR=0;FASTGLTF_ENABLE_DEPRECATED_EXT=0;FASTGLTF_DISABLE_CUSTOM_MEMORY_POOL=0;FASTGLTF_USE_64BIT_FLOAT=0;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-relwithdebinfo\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vma;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\glm;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fmt\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\stb_image;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\include-config-relwithdebinfo\SDL2;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\vkbootstrap;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\imgui;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\third_party\fastgltf\include;C:\VulkanSDK\1.4.335.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/third_party/SDL/RelWithDebInfo/SDL2.dll C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\fmt\RelWithDebInfo\fmt.lib;..\third_party\RelWithDebInfo\vkbootstrap.lib;..\third_party\RelWithDebInfo\imgui.lib;..\third_party\fastgltf\RelWithDebInfo\fastgltf.lib;C:\VulkanSDK\1.4.335.0\Lib\vulkan-1.lib;..\third_party\SDL\RelWithDebInfo\SDL2.lib;..\third_party\fastgltf\RelWithDebInfo\fastgltf_simdjson.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/RelWithDebInfo/engine.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/bin/RelWithDebInfo/engine.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine -BC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build --check-stamp-file C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine -BC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build --check-stamp-file C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine -BC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build --check-stamp-file C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine -BC:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build --check-stamp-file C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\engine.dir\cmake_pch.cxx">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/engine.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\main.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_types.h" />
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_initializers.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_initializers.h" />
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_images.h" />
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_images.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_descriptors.h" />
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_descriptors.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_pipelines.h" />
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_pipelines.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_engine.h" />
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_engine.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_loader.h" />
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\vk_loader.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\camera.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/build/src/CMakeFiles/engine.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\src\camera.h" />
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\engine.dir\Debug\cmake_pch.hxx" />
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\engine.dir\Release\cmake_pch.hxx" />
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\engine.dir\MinSizeRel\cmake_pch.hxx" />
+    <ClInclude Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\src\CMakeFiles\engine.dir\RelWithDebInfo\cmake_pch.hxx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\ZERO_CHECK.vcxproj">
+      <Project>{F1D06989-2FDB-3281-B6A8-13EDDEAAC45A}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\SDL\SDL2.vcxproj">
+      <Project>{EED4003E-D86A-3D4D-BF4F-ABAF637688A1}</Project>
+      <Name>SDL2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\fastgltf\fastgltf.vcxproj">
+      <Project>{74BFC053-03E5-3196-9512-9B3ACCA3FEA0}</Project>
+      <Name>fastgltf</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\fastgltf\fastgltf_simdjson.vcxproj">
+      <Project>{EF857205-6A69-3BB7-9273-4F6CEB5BA032}</Project>
+      <Name>fastgltf_simdjson</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\fmt\fmt.vcxproj">
+      <Project>{CA448577-7A1F-361D-B569-2D6FAA903831}</Project>
+      <Name>fmt</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\imgui.vcxproj">
+      <Project>{12F22888-DE24-3048-89E7-F5EDB042D120}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\third_party\vkbootstrap.vcxproj">
+      <Project>{85FE76C1-C893-3772-8A3B-E414D0A1D9F4}</Project>
+      <Name>vkbootstrap</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
