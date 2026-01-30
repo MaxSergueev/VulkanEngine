@@ -1,5 +1,4 @@
-﻿//> includes
-#include "vk_engine.h"
+﻿#include "vk_engine.h"
 
 #include <SDL.h>
 #include <SDL_vulkan.h>
@@ -62,7 +61,7 @@ void VulkanEngine::init()
 
 	init_mesh_pipeline();
 
-    metalRoughMaterial.build_pipelines(this); // Move all pipelines into init piplelines
+	metalRoughMaterial.build_pipelines(this); // TODO: Move to init_pipelines?
 
 	init_imgui();
 
@@ -126,8 +125,6 @@ void VulkanEngine::init_vulkan()
     //grab the instance 
     _instance = vkb_inst.instance;
     _debug_messenger = vkb_inst.debug_messenger;
-
-    ///// 
 
     SDL_Vulkan_CreateSurface(_window, _instance, &_surface);
 
@@ -370,8 +367,6 @@ GPUMeshBuffers VulkanEngine::uploadMesh(std::span<uint32_t> indices, std::span<V
 
 }
 
-
-
 void VulkanEngine::init_commands()
 {	
     //create a command pool for commands submitted to the graphics queue.
@@ -505,7 +500,6 @@ void VulkanEngine::init_pipelines()
 
     VK_CHECK(vkCreatePipelineLayout(_device, &computeLayout, nullptr, &_gradientPipelineLayout));
 
-    // ADD YOUR REFACTORED CODE HERE:
     VkShaderModule gradientShader;
     if (!vkutil::load_shader_module("../../shaders/gradient_color.comp.spv", _device, &gradientShader)) {
         fmt::print("Error when building the compute shader \n");
@@ -678,7 +672,6 @@ void VulkanEngine::init_mesh_pipeline()
 
     //no blending
     pipelineBuilder.disable_blending();
-	//pipelineBuilder.enable_blending_additive();
 
     //pipelineBuilder.disable_depthtest();
     pipelineBuilder.enable_depthtest(true, VK_COMPARE_OP_GREATER_OR_EQUAL);
@@ -792,21 +785,6 @@ void VulkanEngine::init_default_data() {
 
     defaultData = metalRoughMaterial.write_material(_device, MaterialPass::MainColor, materialResources, globalDescriptorAllocator);
 
-    for (auto& m : testMeshes) {
-        std::shared_ptr<MeshNode> newNode = std::make_shared<MeshNode>();
-        newNode->mesh = m;
-
-        newNode->localTransform = glm::mat4{ 1.f };
-        newNode->worldTransform = glm::mat4{ 1.f };
-
-        for (auto& s : newNode->mesh->surfaces) {
-            s.material = std::make_shared<GLTFMaterial>(defaultData);
-        }
-
-        loadedNodes[m->name] = std::move(newNode);
-    }
-
-
 }
 
 
@@ -828,11 +806,6 @@ void VulkanEngine::cleanup()
             vkDestroySemaphore(_device, _frames[i]._swapchainSemaphore, nullptr);
 
             _frames[i]._deletionQueue.flush();
-        }
-
-        for (auto& mesh : testMeshes) {
-            destroy_buffer(mesh->meshBuffers.indexBuffer);
-            destroy_buffer(mesh->meshBuffers.vertexBuffer);
         }
 
         //flush the global deletion queue
@@ -863,7 +836,7 @@ void VulkanEngine::draw()
 
     //request image from the swapchain
     uint32_t swapchainImageIndex;
-    //VK_CHECK(vkAcquireNextImageKHR(_device, _swapchain, 1000000000, get_current_frame()._swapchainSemaphore, nullptr, &swapchainImageIndex));
+   
     VkResult e = vkAcquireNextImageKHR(_device, _swapchain, 1000000000, get_current_frame()._swapchainSemaphore, nullptr, &swapchainImageIndex);
     if (e == VK_ERROR_OUT_OF_DATE_KHR) {
         resize_requested = true;
@@ -881,10 +854,8 @@ void VulkanEngine::draw()
     //begin the command buffer recording. We will use this command buffer exactly once, so we want to let vulkan know that
     VkCommandBufferBeginInfo cmdBeginInfo = vkinit::command_buffer_begin_info(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
     
-    ////////////////////////////////////////
     _drawExtent.height = std::min(_swapchainExtent.height, _drawImage.imageExtent.height) * renderScale;
     _drawExtent.width = std::min(_swapchainExtent.width, _drawImage.imageExtent.width) * renderScale;
-    ////////////////////////////////////////
 
     // Start the command buffer recording
     VK_CHECK(vkBeginCommandBuffer(cmd, &cmdBeginInfo));
@@ -949,18 +920,13 @@ void VulkanEngine::draw()
 
     presentInfo.pImageIndices = &swapchainImageIndex;
 
-    //VK_CHECK(vkQueuePresentKHR(_graphicsQueue, &presentInfo));
     VkResult presentResult = vkQueuePresentKHR(_graphicsQueue, &presentInfo);
     if (presentResult == VK_ERROR_OUT_OF_DATE_KHR) {
         resize_requested = true;
     }
 
-
     //increase the number of frames drawn
     _frameNumber++;
-
-
-
 }
 
 void VulkanEngine::draw_background(VkCommandBuffer cmd)
@@ -1034,9 +1000,7 @@ void VulkanEngine::draw_geometry(VkCommandBuffer cmd)
     writer.write_buffer(0, gpuSceneDataBuffer.buffer, sizeof(GPUSceneData), 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER);
     writer.update_set(_device, globalDescriptor);
 
-    // Draw all opaque surfaces
-    for (const RenderObject& draw : mainDrawContext.OpaqueSurfaces) {
-
+    auto draw = [&](const RenderObject& draw) {
         vkCmdBindPipeline(cmd, VK_PIPELINE_BIND_POINT_GRAPHICS, draw.material->pipeline->pipeline);
         vkCmdBindDescriptorSets(cmd, VK_PIPELINE_BIND_POINT_GRAPHICS, draw.material->pipeline->layout, 0, 1, &globalDescriptor, 0, nullptr);
         vkCmdBindDescriptorSets(cmd, VK_PIPELINE_BIND_POINT_GRAPHICS, draw.material->pipeline->layout, 1, 1, &draw.material->materialSet, 0, nullptr);
@@ -1049,10 +1013,19 @@ void VulkanEngine::draw_geometry(VkCommandBuffer cmd)
         vkCmdPushConstants(cmd, draw.material->pipeline->layout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(GPUDrawPushConstants), &pushConstants);
 
         vkCmdDrawIndexed(cmd, draw.indexCount, 1, draw.firstIndex, 0, 0);
+        };
+
+    for (auto& r : mainDrawContext.OpaqueSurfaces) {
+        draw(r);
+    }
+
+    for (auto& r : mainDrawContext.TransparentSurfaces) {
+        draw(r);
     }
 
     vkCmdEndRendering(cmd);
 }
+
 
 void VulkanEngine::update_scene()
 {
@@ -1071,9 +1044,8 @@ void VulkanEngine::update_scene()
     sceneData.proj = projection;
     sceneData.viewproj = projection * view;
 
-
-
     mainDrawContext.OpaqueSurfaces.clear();
+    mainDrawContext.TransparentSurfaces.clear();
 
     loadedScenes["structure"]->Draw(glm::mat4{ 1.f }, mainDrawContext);
 

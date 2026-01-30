@@ -25,10 +25,9 @@ std::optional<AllocatedImage> load_image(VulkanEngine* engine, fastgltf::Asset& 
             [&](fastgltf::sources::URI& filePath) {
                 assert(filePath.fileByteOffset == 0); // We don't support offsets with stbi.
                 assert(filePath.uri.isLocalPath()); // We're only capable of loading
-                // local files.
 
 const std::string path(filePath.uri.path().begin(),
-    filePath.uri.path().end()); // Thanks C++.
+    filePath.uri.path().end());
 unsigned char* data = stbi_load(path.c_str(), &width, &height, &nrChannels, 4);
 if (data) {
     VkExtent3D imagesize;
@@ -173,8 +172,8 @@ std::optional<std::shared_ptr<LoadedGLTF>> loadGltf(VulkanEngine* engine, std::s
 
     fastgltf::Parser parser{};
 
-    constexpr auto gltfOptions = fastgltf::Options::DontRequireValidAssetMember | fastgltf::Options::AllowDouble | fastgltf::Options::LoadGLBBuffers | fastgltf::Options::LoadExternalBuffers;
-    // fastgltf::Options::LoadExternalImages;
+    constexpr auto gltfOptions = fastgltf::Options::DontRequireValidAssetMember | fastgltf::Options::AllowDouble
+        | fastgltf::Options::LoadGLBBuffers | fastgltf::Options::LoadExternalBuffers;
 
     fastgltf::GltfDataBuffer data;
     data.loadFromFile(filePath);
@@ -310,8 +309,7 @@ std::optional<std::shared_ptr<LoadedGLTF>> loadGltf(VulkanEngine* engine, std::s
         data_index++;
     }
 
-    // use the same vectors for all meshes so that the memory doesnt reallocate as
-// often
+    // use the same vectors for all meshes so that the memory doesnt reallocate as often
     std::vector<uint32_t> indices;
     std::vector<Vertex> vertices;
 
