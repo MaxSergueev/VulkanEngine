@@ -7,6 +7,8 @@
 
 #include <vk_descriptors.h>
 
+#include <vk_loader.h>
+
 struct DeletionQueue
 {
 	std::deque<std::function<void()>> deletors;
@@ -87,7 +89,9 @@ public:
 
 	//draw resources
 	AllocatedImage _drawImage;
+	AllocatedImage _depthImage;
 	VkExtent2D _drawExtent;
+
 
 	DeletionQueue _mainDeletionQueue; //// Private vs public?
 
@@ -116,6 +120,7 @@ public:
 	VkPipeline _meshPipeline;
 
 	GPUMeshBuffers rectangle;
+	std::vector<std::shared_ptr<MeshAsset>> testMeshes;
 
 	static VulkanEngine& Get();
 
@@ -130,6 +135,10 @@ public:
 	void draw_background(VkCommandBuffer cmd);
 	void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
 	void draw_geometry(VkCommandBuffer cmd);
+
+	AllocatedBuffer create_buffer(size_t allocSize, VkBufferUsageFlags usage, VmaMemoryUsage memoryUsage);
+	void destroy_buffer(const AllocatedBuffer& buffer);
+	GPUMeshBuffers uploadMesh(std::span<uint32_t> indices, std::span<Vertex> vertices);
 
 	//run main loop
 	void run();
@@ -149,18 +158,7 @@ private:
 	void init_mesh_pipeline();
 	void init_default_data();
 
-
-
 	void create_swapchain(uint32_t width, uint32_t height);
 	void destroy_swapchain();
-
-	// Private?
-
-	AllocatedBuffer create_buffer(size_t allocSize, VkBufferUsageFlags usage, VmaMemoryUsage memoryUsage);
-
-	void destroy_buffer(const AllocatedBuffer& buffer);
-
-	GPUMeshBuffers uploadMesh(std::span<uint32_t> indices, std::span<Vertex> vertices);
-
 
 };
