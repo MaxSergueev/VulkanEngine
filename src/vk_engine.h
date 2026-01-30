@@ -9,6 +9,8 @@
 
 #include <vk_loader.h>
 
+#include <camera.h>
+
 struct DeletionQueue
 {
 	std::deque<std::function<void()>> deletors;
@@ -134,6 +136,8 @@ public:
 	float renderScale = 1.f;
 
 	struct SDL_Window* _window{ nullptr };
+
+	Camera mainCamera;
 
 	FrameData _frames[FRAME_OVERLAP];
 

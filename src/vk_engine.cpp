@@ -68,6 +68,13 @@ void VulkanEngine::init()
 
     init_default_data();
 
+    mainCamera.velocity = glm::vec3(0.f);
+    mainCamera.position = glm::vec3(0, 0, 5);
+
+    mainCamera.pitch = 0;
+    mainCamera.yaw = 0;
+
+
     _isInitialized = true;
 }
 
@@ -1042,18 +1049,26 @@ void VulkanEngine::draw_geometry(VkCommandBuffer cmd)
 
 void VulkanEngine::update_scene()
 {
-    mainDrawContext.OpaqueSurfaces.clear();
+    mainCamera.update();
 
-    loadedNodes["Suzanne"]->Draw(glm::mat4{ 1.f }, mainDrawContext);
+    glm::mat4 view = mainCamera.getViewMatrix();
 
-    sceneData.view = glm::translate(glm::vec3{ 0,0,-5 });
     // camera projection
-    sceneData.proj = glm::perspective(glm::radians(70.f), (float)_windowExtent.width / (float)_windowExtent.height, 10000.f, 0.1f);
+    glm::mat4 projection = glm::perspective(glm::radians(70.f), (float)_windowExtent.width / (float)_windowExtent.height, 10000.f, 0.1f);
 
     // invert the Y direction on projection matrix so that we are more similar
     // to opengl and gltf axis
-    sceneData.proj[1][1] *= -1;
-    sceneData.viewproj = sceneData.proj * sceneData.view;
+    projection[1][1] *= -1;
+
+    sceneData.view = view;
+    sceneData.proj = projection;
+    sceneData.viewproj = projection * view;
+
+
+
+    mainDrawContext.OpaqueSurfaces.clear();
+
+    loadedNodes["Suzanne"]->Draw(glm::mat4{ 1.f }, mainDrawContext);
 
     //some default lighting parameters
     sceneData.ambientColor = glm::vec4(.1f);
@@ -1098,6 +1113,7 @@ void VulkanEngine::run()
                 }
             }
 
+            mainCamera.processSDLEvent(e);
             //send SDL event to imgui for handling
             ImGui_ImplSDL2_ProcessEvent(&e);
         }
