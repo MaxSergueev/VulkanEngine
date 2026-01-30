@@ -37,6 +37,22 @@ struct FrameData {
 	DeletionQueue _deletionQueue;
 };
 
+struct ComputePushConstants {
+	glm::vec4 data1;
+	glm::vec4 data2;
+	glm::vec4 data3;
+	glm::vec4 data4;
+};
+
+struct ComputeEffect {
+	const char* name;
+
+	VkPipeline pipeline;
+	VkPipelineLayout layout;
+
+	ComputePushConstants data;
+};
+
 constexpr unsigned int FRAME_OVERLAP = 2;
 
 class VulkanEngine {
@@ -48,22 +64,6 @@ public:
 	VkExtent2D _windowExtent{ 1700 , 900 };
 
 	struct SDL_Window* _window{ nullptr };
-
-	static VulkanEngine& Get();
-
-	//initializes everything in the engine
-	void init();
-
-	//shuts down the engine
-	void cleanup();
-
-	//draw loop
-	void draw();
-	void draw_background(VkCommandBuffer cmd);
-	void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
-
-	//run main loop
-	void run();
 
 	FrameData _frames[FRAME_OVERLAP];
 
@@ -101,10 +101,38 @@ public:
 	VkPipeline _gradientPipeline;
 	VkPipelineLayout _gradientPipelineLayout;
 
+	VkPipelineLayout _trianglePipelineLayout;
+	VkPipeline _trianglePipeline;
+
 	// immediate submit structures
 	VkFence _immFence;
 	VkCommandBuffer _immCommandBuffer;
 	VkCommandPool _immCommandPool;
+
+	std::vector<ComputeEffect> backgroundEffects;
+	int currentBackgroundEffect{ 0 };
+
+	VkPipelineLayout _meshPipelineLayout;
+	VkPipeline _meshPipeline;
+
+	GPUMeshBuffers rectangle;
+
+	static VulkanEngine& Get();
+
+	//initializes everything in the engine
+	void init();
+
+	//shuts down the engine
+	void cleanup();
+
+	//draw loop
+	void draw();
+	void draw_background(VkCommandBuffer cmd);
+	void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
+	void draw_geometry(VkCommandBuffer cmd);
+
+	//run main loop
+	void run();
 
 	void immediate_submit(std::function<void(VkCommandBuffer cmd)>&& function);
 
@@ -116,10 +144,23 @@ private:
 	void init_sync_structures();
 	void init_descriptors();
 	void init_pipelines();
-	void init_background_pipelines();
 	void init_imgui();
+	void init_triangle_pipeline();
+	void init_mesh_pipeline();
+	void init_default_data();
+
+
 
 	void create_swapchain(uint32_t width, uint32_t height);
 	void destroy_swapchain();
+
+	// Private?
+
+	AllocatedBuffer create_buffer(size_t allocSize, VkBufferUsageFlags usage, VmaMemoryUsage memoryUsage);
+
+	void destroy_buffer(const AllocatedBuffer& buffer);
+
+	GPUMeshBuffers uploadMesh(std::span<uint32_t> indices, std::span<Vertex> vertices);
+
 
 };
