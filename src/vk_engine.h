@@ -105,9 +105,6 @@ public:
 	VkPipeline _gradientPipeline;
 	VkPipelineLayout _gradientPipelineLayout;
 
-	VkPipelineLayout _trianglePipelineLayout;
-	VkPipeline _trianglePipeline;
-
 	// immediate submit structures
 	VkFence _immFence;
 	VkCommandBuffer _immCommandBuffer;
@@ -119,7 +116,6 @@ public:
 	VkPipelineLayout _meshPipelineLayout;
 	VkPipeline _meshPipeline;
 
-	GPUMeshBuffers rectangle;
 	std::vector<std::shared_ptr<MeshAsset>> testMeshes;
 
 	static VulkanEngine& Get();
@@ -154,7 +150,6 @@ private:
 	void init_descriptors();
 	void init_pipelines();
 	void init_imgui();
-	void init_triangle_pipeline();
 	void init_mesh_pipeline();
 	void init_default_data();
 
