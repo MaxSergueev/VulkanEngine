@@ -29,15 +29,16 @@ struct DeletionQueue
 
 
 struct FrameData {
+	VkSemaphore _swapchainSemaphore, _renderSemaphore;
+	VkFence _renderFence;
 
 	VkCommandPool _commandPool;
 	VkCommandBuffer _mainCommandBuffer;
 
-	VkSemaphore _swapchainSemaphore, _renderSemaphore;
-	VkFence _renderFence;
-
 	DeletionQueue _deletionQueue;
+	DescriptorAllocatorGrowable _frameDescriptors;
 };
+
 
 struct ComputePushConstants {
 	glm::vec4 data1;
@@ -54,6 +55,16 @@ struct ComputeEffect {
 
 	ComputePushConstants data;
 };
+
+struct GPUSceneData {
+	glm::mat4 view;
+	glm::mat4 proj;
+	glm::mat4 viewproj;
+	glm::vec4 ambientColor;
+	glm::vec4 sunlightDirection;
+	glm::vec4 sunlightColor;
+};
+
 
 constexpr unsigned int FRAME_OVERLAP = 2;
 
@@ -104,6 +115,9 @@ public:
 
 	VkDescriptorSet _drawImageDescriptors;
 	VkDescriptorSetLayout _drawImageDescriptorLayout;
+
+	GPUSceneData sceneData;
+	VkDescriptorSetLayout _gpuSceneDataDescriptorLayout;
 
 	VkPipeline _gradientPipeline;
 	VkPipelineLayout _gradientPipelineLayout;
