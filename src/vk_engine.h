@@ -63,7 +63,11 @@ public:
 	bool _isInitialized{ false };
 	int _frameNumber {0};
 	bool stop_rendering{ false };
+	bool resize_requested{ false };
 	VkExtent2D _windowExtent{ 1700 , 900 };
+
+	VkExtent2D _drawExtent;
+	float renderScale = 1.f;
 
 	struct SDL_Window* _window{ nullptr };
 
@@ -90,7 +94,6 @@ public:
 	//draw resources
 	AllocatedImage _drawImage;
 	AllocatedImage _depthImage;
-	VkExtent2D _drawExtent;
 
 
 	DeletionQueue _mainDeletionQueue; //// Private vs public?
@@ -155,5 +158,6 @@ private:
 
 	void create_swapchain(uint32_t width, uint32_t height);
 	void destroy_swapchain();
+	void resize_swapchain();
 
 };
