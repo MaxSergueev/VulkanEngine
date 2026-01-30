@@ -69,10 +69,17 @@ void VulkanEngine::init()
     init_default_data();
 
     mainCamera.velocity = glm::vec3(0.f);
-    mainCamera.position = glm::vec3(0, 0, 5);
+    mainCamera.position = glm::vec3(30.f, -00.f, -085.f);
 
     mainCamera.pitch = 0;
     mainCamera.yaw = 0;
+
+    std::string structurePath = { "..\\..\\assets\\structure.glb" };
+    auto structureFile = loadGltf(this, structurePath);
+
+    assert(structureFile.has_value());
+
+    loadedScenes["structure"] = *structureFile;
 
 
     _isInitialized = true;
@@ -785,8 +792,6 @@ void VulkanEngine::init_default_data() {
 
     defaultData = metalRoughMaterial.write_material(_device, MaterialPass::MainColor, materialResources, globalDescriptorAllocator);
 
-    testMeshes = loadGltfMeshes(this, "..\\..\\assets\\basicmesh.glb").value();
-
     for (auto& m : testMeshes) {
         std::shared_ptr<MeshNode> newNode = std::make_shared<MeshNode>();
         newNode->mesh = m;
@@ -809,8 +814,10 @@ void VulkanEngine::cleanup()
 {
     if (_isInitialized) {
 
-        //make sure the gpu has stopped doing its things
+        // make sure the gpu has stopped doing its things
         vkDeviceWaitIdle(_device);
+
+        loadedScenes.clear();
 
         for (int i = 0; i < FRAME_OVERLAP; i++) {
             vkDestroyCommandPool(_device, _frames[i]._commandPool, nullptr);
@@ -1068,20 +1075,12 @@ void VulkanEngine::update_scene()
 
     mainDrawContext.OpaqueSurfaces.clear();
 
-    loadedNodes["Suzanne"]->Draw(glm::mat4{ 1.f }, mainDrawContext);
+    loadedScenes["structure"]->Draw(glm::mat4{ 1.f }, mainDrawContext);
 
     //some default lighting parameters
     sceneData.ambientColor = glm::vec4(.1f);
     sceneData.sunlightColor = glm::vec4(1.f);
     sceneData.sunlightDirection = glm::vec4(0, 1, 0.5, 1.f);
-
-    for (int x = -3; x < 3; x++) {
-
-        glm::mat4 scale = glm::scale(glm::vec3{ 0.2 });
-        glm::mat4 translation = glm::translate(glm::vec3{ x, 1, 0 });
-
-        loadedNodes["Cube"]->Draw(translation * scale, mainDrawContext);
-    }
 
 }
 

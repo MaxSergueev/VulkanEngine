@@ -164,16 +164,18 @@ public:
 	AllocatedImage _drawImage;
 	AllocatedImage _depthImage;
 
+	std::unordered_map<std::string, std::shared_ptr<LoadedGLTF>> loadedScenes;
+
 	std::unordered_map<std::string, std::shared_ptr<Node>> loadedNodes;
 
 	MaterialInstance defaultData;
 	GLTFMetallic_Roughness metalRoughMaterial;
 
-	DeletionQueue _mainDeletionQueue; //// Private vs public?
+	DeletionQueue _mainDeletionQueue;
 
 	VmaAllocator _allocator;
 
-	DescriptorAllocatorGrowable globalDescriptorAllocator; // Maybe type DescriptorAllocatorGrowable??
+	DescriptorAllocatorGrowable globalDescriptorAllocator;
 
 	VkDescriptorSet _drawImageDescriptors;
 	VkDescriptorSetLayout _drawImageDescriptorLayout;
