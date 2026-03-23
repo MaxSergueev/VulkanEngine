@@ -242,5 +242,8 @@ private:
 	void create_swapchain(uint32_t width, uint32_t height);
 	void destroy_swapchain();
 	void resize_swapchain();
+
+	// GrayScott simulation
+	int _simulationStep = 0;
 };
 

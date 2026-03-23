@@ -1,0 +1,146 @@
+#version 460
+
+layout (local_size_x = 16, local_size_y = 16) in;
+
+layout(rgba16f, set = 0, binding = 0) uniform image2D image;
+
+// Push constants block - matches ComputePushConstants structure
+layout(push_constant) uniform constants {
+    vec4 data1;  // Contains: [frame_number, screen_width, screen_height, time_factor]
+    vec4 data2;  // Contains: [DA, DB, FEED, KILL]
+    vec4 data3;  // Contains: [DT, SIMULATION_STEPS, unused, unused]
+    vec4 data4;  // Contains: [INITIAL_SEED_OFFSET, unused, unused, unused]
+} PushConstants;
+
+// --- CONSTANTS ---
+const vec3 BACKGROUND_COLOR = vec3(0.25, 0.0, 0.15); // Chemical A dominant
+const vec3 PATTERN_COLOR = vec3(0.9, 0.2, 0.5);      // Chemical B dominant
+
+// Extract parameters from push constants
+#define FRAME_NUMBER uint(PushConstants.data1.x)
+#define SCREEN_WIDTH uint(PushConstants.data1.y)
+#define SCREEN_HEIGHT uint(PushConstants.data1.z)
+#define DA PushConstants.data2.x
+#define DB PushConstants.data2.y
+#define FEED PushConstants.data2.z
+#define KILL PushConstants.data2.w
+#define DT PushConstants.data3.x
+#define SIMULATION_STEPS uint(PushConstants.data3.y)
+#define INITIAL_SEED_OFFSET uint(PushConstants.data4.x)
+
+// Boundary helper - toroidal wrap
+ivec2 get_pos(int x, int y) {
+    int w = int(SCREEN_WIDTH);
+    int h = int(SCREEN_HEIGHT);
+    int safe_x = (x + w) % w;
+    int safe_y = (y + h) % h;
+    return ivec2(safe_x, safe_y);
+}
+
+// Pseudo-random number generator
+float random(uint seed) {
+    float s = float(seed);
+    return fract(sin(s * 12.9898 + s * 78.233) * 43758.5453);
+}
+
+// Helper to determine if the current pixel is close to a random seed location
+bool is_near_random_seed(uint seed_offset, uint id_x, uint id_y, float radius) {
+    // Determine the random center point for this seed_offset
+    float x_rand_seed = random(INITIAL_SEED_OFFSET + seed_offset + 1u) * float(SCREEN_WIDTH);
+    float y_rand_seed = random(INITIAL_SEED_OFFSET + seed_offset + 2u) * float(SCREEN_HEIGHT);
+    
+    // Calculate the distance from the current pixel to the random center
+    float dist = distance(vec2(float(id_x), float(id_y)), vec2(x_rand_seed, y_rand_seed));
+    
+    return dist < radius;
+}
+
+void main() {
+    if (gl_GlobalInvocationID.x >= SCREEN_WIDTH || gl_GlobalInvocationID.y >= SCREEN_HEIGHT) {
+        return;
+    }
+
+    ivec2 pos = ivec2(gl_GlobalInvocationID.xy);
+    uint id_x = gl_GlobalInvocationID.x;
+    uint id_y = gl_GlobalInvocationID.y;
+
+    // Initialization
+    if (FRAME_NUMBER < 10u) {
+        uint seed_value = (id_x * 12u) + (id_y * 7u);
+        float rand = random(seed_value);
+        vec4 val = vec4(1.0, 0.0, 0.0, 1.0); // A=1.0, B=0.0
+
+        // --- Seeding Logic ---
+
+        // Central Patch
+        float dist_center = distance(vec2(float(id_x), float(id_y)), 
+                                   vec2(SCREEN_WIDTH, SCREEN_HEIGHT) * 0.5);
+        bool is_center_patch = dist_center < 40.0;
+
+        // Random Patches
+        bool is_random_patch_1 = is_near_random_seed(1u, id_x, id_y, 20.0);
+        bool is_random_patch_2 = is_near_random_seed(2u, id_x, id_y, 10.0);
+        bool is_random_patch_3 = is_near_random_seed(3u, id_x, id_y, 5.0);
+
+        // Check if the current pixel should be seeded
+        if (is_center_patch || is_random_patch_1 || is_random_patch_2 || is_random_patch_3) {
+            // Set Chemical B to a random concentration between 0 and 1
+            val.y = rand;
+        } else {
+            val.y = 0.0;
+        }
+
+        imageStore(image, pos, val);
+        
+        // Set initial display color
+        vec3 initial_display_col_rgb = mix(BACKGROUND_COLOR, PATTERN_COLOR, val.y);
+        imageStore(image, pos, vec4(initial_display_col_rgb, 1.0));
+        return;
+    }
+
+    // --- SIMULATION LOOP ---
+    // Perform multiple calculation steps for one rendered frame to speed up simulation
+    for (uint i = 0u; i < SIMULATION_STEPS; i++) {
+
+        // Read current state
+        vec4 center_val = imageLoad(image, pos);
+        float A = center_val.x;
+        float B = center_val.y;
+
+        // Calculate Laplacian (Diffusion) using 3x3 kernel
+        vec2 sum = vec2(0.0);
+
+        // 3x3 kernel sum with weights
+        sum += imageLoad(image, get_pos(pos.x - 1, pos.y)).xy * 0.2;
+        sum += imageLoad(image, get_pos(pos.x + 1, pos.y)).xy * 0.2;
+        sum += imageLoad(image, get_pos(pos.x, pos.y - 1)).xy * 0.2;
+        sum += imageLoad(image, get_pos(pos.x, pos.y + 1)).xy * 0.2;
+        sum += imageLoad(image, get_pos(pos.x - 1, pos.y - 1)).xy * 0.05;
+        sum += imageLoad(image, get_pos(pos.x + 1, pos.y - 1)).xy * 0.05;
+        sum += imageLoad(image, get_pos(pos.x - 1, pos.y + 1)).xy * 0.05;
+        sum += imageLoad(image, get_pos(pos.x + 1, pos.y + 1)).xy * 0.05;
+
+        vec2 lap = sum - center_val.xy;
+
+        // Gray-Scott Reaction-Diffusion equations
+        float reaction = A * B * B;
+        float nextA = A + (DA * lap.x - reaction + FEED * (1.0 - A)) * DT;
+        float nextB = B + (DB * lap.y + reaction - (KILL + FEED) * B) * DT;
+
+        // Clamp concentrations
+        nextA = clamp(nextA, 0.0, 1.0);
+        nextB = clamp(nextB, 0.0, 1.0);
+
+        vec4 final_col = vec4(nextA, nextB, 0.0, 1.0);
+
+        // Save state for the next step
+        imageStore(image, pos, final_col);
+    }
+
+    // RENDER: Visualize the final state of Chemical B
+    vec4 final_state = imageLoad(image, pos);
+    float final_B = final_state.y;
+
+    vec3 display_col_rgb = mix(BACKGROUND_COLOR, PATTERN_COLOR, final_B);
+    imageStore(image, pos, vec4(display_col_rgb, 1.0));
+}

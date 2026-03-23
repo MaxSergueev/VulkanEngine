@@ -217,6 +217,174 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\colored_triangle_mesh.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/colored_triangle_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\default_lit.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/default_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\funky_triangle.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/funky_triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\gradient.comp.spv.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/gradient.comp.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -329,6 +497,230 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\grayscott.comp.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/grayscott.comp.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\mesh.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\mesh.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\mesh_pbr.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/mesh_pbr.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\sky.comp.spv.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/sky.comp.spv</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -385,6 +777,454 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\tex_image.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tex_image.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\textured_lit.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/textured_lit.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\tri_mesh.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\tri_mesh_descriptors.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_descriptors.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\tri_mesh_pushconstants.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_pushconstants.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\tri_mesh_ssbo.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/tri_mesh_ssbo.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\triangle.frag.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.frag.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\0693be49ff05d6431a77a73ff73ec315\triangle.vert.spv.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+C:\VulkanSDK\1.4.335.0\Bin\glslangValidator.exe -V C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert -o C:/Users/maxse/Desktop/GraphicsEngine/VulkanProject/VulkanEngine/shaders/triangle.vert.spv
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\e3aaf89c92b89652a11208e054ec4f66\Shaders.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
@@ -394,7 +1234,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\Shaders</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
@@ -406,7 +1246,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\Shaders</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
@@ -418,7 +1258,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\Shaders</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
@@ -430,7 +1270,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\colored_triangle_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\default_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\funky_triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\gradient_color.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\grayscott.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\mesh_pbr.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\sky.comp.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tex_image.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\textured_lit.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_descriptors.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_pushconstants.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\tri_mesh_ssbo.vert.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.frag.spv;C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\shaders\triangle.vert.spv;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\maxse\Desktop\GraphicsEngine\VulkanProject\VulkanEngine\build\CMakeFiles\Shaders</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>

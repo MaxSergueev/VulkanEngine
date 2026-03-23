@@ -500,21 +500,16 @@ void VulkanEngine::init_pipelines()
 
     VK_CHECK(vkCreatePipelineLayout(_device, &computeLayout, nullptr, &_gradientPipelineLayout));
 
-    VkShaderModule gradientShader;
-    if (!vkutil::load_shader_module("../../shaders/gradient_color.comp.spv", _device, &gradientShader)) {
-        fmt::print("Error when building the compute shader \n");
-    }
-
-    VkShaderModule skyShader;
-    if (!vkutil::load_shader_module("../../shaders/sky.comp.spv", _device, &skyShader)) {
-        fmt::print("Error when building the compute shader \n");
+    VkShaderModule grayScottShader;
+    if (!vkutil::load_shader_module("../../shaders/grayscott.comp.spv", _device, &grayScottShader)) {
+        fmt::print("Error when building the Gray-Scott compute shader \n");
     }
 
     VkPipelineShaderStageCreateInfo stageinfo{};
     stageinfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
     stageinfo.pNext = nullptr;
     stageinfo.stage = VK_SHADER_STAGE_COMPUTE_BIT;
-    stageinfo.module = gradientShader;
+    stageinfo.module = grayScottShader;
     stageinfo.pName = "main";
 
     VkComputePipelineCreateInfo computePipelineCreateInfo{};
@@ -523,42 +518,47 @@ void VulkanEngine::init_pipelines()
     computePipelineCreateInfo.layout = _gradientPipelineLayout;
     computePipelineCreateInfo.stage = stageinfo;
 
-    ComputeEffect gradient;
-    gradient.layout = _gradientPipelineLayout;
-    gradient.name = "gradient";
-    gradient.data = {};
+    ComputeEffect reactionDiffusion;
+    reactionDiffusion.layout = _gradientPipelineLayout;
+    reactionDiffusion.name = "reaction-diffusion";
+    reactionDiffusion.data.data1 = glm::vec4(
+        0.0f, // frame number (will be updated each frame)
+        static_cast<float>(_windowExtent.width), // screen width
+        static_cast<float>(_windowExtent.height), // screen height
+        0.0f // time factor (unused)
+    );
+    reactionDiffusion.data.data2 = glm::vec4(
+        1.0f,    // DA (Diffusion A)
+        0.45f,   // DB (Diffusion B)
+        0.055f,  // FEED rate
+        0.063f   // KILL rate
+    );
+    reactionDiffusion.data.data3 = glm::vec4(
+        1.0f,    // DT (time step)
+        30.0f,   // SIMULATION_STEPS
+        0.0f,    // unused
+        0.0f     // unused
+    );
+    reactionDiffusion.data.data4 = glm::vec4(
+        21.0f,   // INITIAL_SEED_OFFSET
+        0.0f,    // unused
+        0.0f,    // unused
+        0.0f     // unused
+    );
 
-    //default colors
-    gradient.data.data1 = glm::vec4(1, 0, 0, 1);
-    gradient.data.data2 = glm::vec4(0, 0, 1, 1);
+    VK_CHECK(vkCreateComputePipelines(_device, VK_NULL_HANDLE, 1, &computePipelineCreateInfo, nullptr, &reactionDiffusion.pipeline));
 
-    VK_CHECK(vkCreateComputePipelines(_device, VK_NULL_HANDLE, 1, &computePipelineCreateInfo, nullptr, &gradient.pipeline));
-
-    //change the shader module only to create the sky shader
-    computePipelineCreateInfo.stage.module = skyShader;
-
-    ComputeEffect sky;
-    sky.layout = _gradientPipelineLayout;
-    sky.name = "sky";
-    sky.data = {};
-    //default sky parameters
-    sky.data.data1 = glm::vec4(0.1, 0.2, 0.4, 0.97);
-
-    VK_CHECK(vkCreateComputePipelines(_device, VK_NULL_HANDLE, 1, &computePipelineCreateInfo, nullptr, &sky.pipeline));
-
-    //add the 2 background effects into the array
-    backgroundEffects.push_back(gradient);
-    backgroundEffects.push_back(sky);
+    //add only the reaction-diffusion effect into the array
+    backgroundEffects.push_back(reactionDiffusion);
 
     //destroy structures properly
-    vkDestroyShaderModule(_device, gradientShader, nullptr);
-    vkDestroyShaderModule(_device, skyShader, nullptr);
+    vkDestroyShaderModule(_device, grayScottShader, nullptr);
     _mainDeletionQueue.push_function([=]() {
         vkDestroyPipelineLayout(_device, _gradientPipelineLayout, nullptr);
-        vkDestroyPipeline(_device, sky.pipeline, nullptr);
-        vkDestroyPipeline(_device, gradient.pipeline, nullptr);
+        vkDestroyPipeline(_device, reactionDiffusion.pipeline, nullptr);
         });
 }
+
 
 void VulkanEngine::init_imgui()
 {
@@ -869,7 +869,7 @@ void VulkanEngine::draw()
     vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_GENERAL, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
     vkutil::transition_image(cmd, _depthImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL);
 
-    draw_geometry(cmd);
+    //draw_geometry(cmd);
 
     // transition the draw image and the swapchain image into their correct transfer layouts
     vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_GENERAL, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
@@ -933,6 +933,13 @@ void VulkanEngine::draw_background(VkCommandBuffer cmd)
 {
     ComputeEffect& effect = backgroundEffects[currentBackgroundEffect];
 
+    // Update simulation step
+    if (_frameNumber % 10 == 0) { 
+        _simulationStep++;
+    }
+
+    effect.data.data1.x = static_cast<float>(_simulationStep);
+
     // bind the background compute pipeline
     vkCmdBindPipeline(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, effect.pipeline);
 
@@ -943,6 +950,7 @@ void VulkanEngine::draw_background(VkCommandBuffer cmd)
     // execute the compute pipeline dispatch. We are using 16x16 workgroup size so we need to divide by it
     vkCmdDispatch(cmd, std::ceil(_drawExtent.width / 16.0), std::ceil(_drawExtent.height / 16.0), 1);
 }
+
 
 void VulkanEngine::draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView)
 {
@@ -1110,16 +1118,14 @@ void VulkanEngine::run()
 
             ImGui::SliderFloat("Render Scale", &renderScale, 0.3f, 1.f);
 
-            ComputeEffect& selected = backgroundEffects[currentBackgroundEffect];
+            ComputeEffect& selected = backgroundEffects[0];
 
-            ImGui::Text("Selected effect: ", selected.name);
+            ImGui::Text("Selected effect: reaction-diffusion");
 
-            ImGui::SliderInt("Effect Index", &currentBackgroundEffect, 0, backgroundEffects.size() - 1);
-
-            ImGui::InputFloat4("data1", (float*)&selected.data.data1);
-            ImGui::InputFloat4("data2", (float*)&selected.data.data2);
-            ImGui::InputFloat4("data3", (float*)&selected.data.data3);
-            ImGui::InputFloat4("data4", (float*)&selected.data.data4);
+            ImGui::InputFloat4("data1 (frame, width, height, time)", (float*)&selected.data.data1);
+            ImGui::InputFloat4("data2 (DA, DB, FEED, KILL)", (float*)&selected.data.data2);
+            ImGui::InputFloat4("data3 (DT, STEPS, unused, unused)", (float*)&selected.data.data3);
+            ImGui::InputFloat4("data4 (SEED_OFFSET, unused, unused, unused)", (float*)&selected.data.data4);
         }
         ImGui::End();
 
@@ -1218,6 +1224,11 @@ void GLTFMetallic_Roughness::build_pipelines(VulkanEngine* engine)
     VkShaderModule meshVertexShader;
     if (!vkutil::load_shader_module("../../shaders/mesh.vert.spv", engine->_device, &meshVertexShader)) {
         fmt::println("Error when building the triangle vertex shader module");
+    }
+
+    VkShaderModule grayScottShader;
+    if (!vkutil::load_shader_module("../../shaders/GrayScott.comp.spv", engine->_device, &grayScottShader)) {
+        fmt::print("Error when building the Gray-Scott compute shader \n");
     }
 
     VkPushConstantRange matrixRange{};
