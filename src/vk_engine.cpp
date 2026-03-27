@@ -261,6 +261,17 @@ void VulkanEngine::init_swapchain()
         vkDestroyImageView(_device, _depthImage.imageView, nullptr);
         vmaDestroyImage(_allocator, _depthImage.image, _depthImage.allocation);
         });
+
+    // Second image for ping-ponging
+    vmaCreateImage(_allocator, &rimg_info, &rimg_allocinfo, &_pingPongImage.image, &_pingPongImage.allocation, nullptr);
+    VkImageViewCreateInfo pingview_info = vkinit::imageview_create_info(_drawImage.imageFormat, _pingPongImage.image, VK_IMAGE_ASPECT_COLOR_BIT);
+    VK_CHECK(vkCreateImageView(_device, &pingview_info, nullptr, &_pingPongImage.imageView));
+
+    // Add to pingpong image to deletion queue
+    _mainDeletionQueue.push_function([=]() {
+        vkDestroyImageView(_device, _pingPongImage.imageView, nullptr);
+        vmaDestroyImage(_allocator, _pingPongImage.image, _pingPongImage.allocation);
+        });
 }
 
 void VulkanEngine::destroy_swapchain()
@@ -431,7 +442,8 @@ void VulkanEngine::init_descriptors()
     //make descriptor set layouts
     {
         DescriptorLayoutBuilder builder;
-        builder.add_binding(0, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+        builder.add_binding(0, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE); // Input
+        builder.add_binding(1, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE); // Output
         _drawImageDescriptorLayout = builder.build(_device, VK_SHADER_STAGE_COMPUTE_BIT);
     }
     {
@@ -445,15 +457,21 @@ void VulkanEngine::init_descriptors()
         _singleImageDescriptorLayout = builder.build(_device, VK_SHADER_STAGE_FRAGMENT_BIT);
     }
 
+    // Allocate two sets for the ping-pong swap
+    _pingPongDescriptorSets[0] = globalDescriptorAllocator.allocate(_device, _drawImageDescriptorLayout);
+    _pingPongDescriptorSets[1] = globalDescriptorAllocator.allocate(_device, _drawImageDescriptorLayout);
 
-
-    //allocate a descriptor set for our draw image
-    _drawImageDescriptors = globalDescriptorAllocator.allocate(_device, _drawImageDescriptorLayout);
-
+    // Set 0: Read from _drawImage, Write to _pingPongImage
     DescriptorWriter writer;
     writer.write_image(0, _drawImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(1, _pingPongImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.update_set(_device, _pingPongDescriptorSets[0]);
 
-    writer.update_set(_device, _drawImageDescriptors);
+    // Set 1: Read from _pingPongImage, Write to _drawImage
+    writer.clear();
+    writer.write_image(0, _pingPongImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(1, _drawImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.update_set(_device, _pingPongDescriptorSets[1]);
 
 
     //make sure both the descriptor allocator and the new layout get cleaned up properly
@@ -864,10 +882,18 @@ void VulkanEngine::draw()
     // we will overwrite it all so we dont care about what was the older layout
     vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
 
+    // Inside draw()
     draw_background(cmd);
 
-    vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_GENERAL, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
-    vkutil::transition_image(cmd, _depthImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL);
+    // Get which image was the output of the compute shader this frame
+    AllocatedImage& resultImage = get_current_sim_image();
+
+    // Transition the result image to TRANSFER_SRC
+    vkutil::transition_image(cmd, resultImage.image, VK_IMAGE_LAYOUT_GENERAL, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
+    vkutil::transition_image(cmd, _swapchainImages[swapchainImageIndex], VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+
+    // Copy from resultImage instead of _drawImage
+    vkutil::copy_image_to_image(cmd, resultImage.image, _swapchainImages[swapchainImageIndex], _drawExtent, _swapchainExtent);
 
     //draw_geometry(cmd);
 
@@ -933,22 +959,30 @@ void VulkanEngine::draw_background(VkCommandBuffer cmd)
 {
     ComputeEffect& effect = backgroundEffects[currentBackgroundEffect];
 
-    // Update simulation step
-    if (_frameNumber % 10 == 0) { 
-        _simulationStep++;
-    }
+    // 1. Transition BOTH images to GENERAL layout so compute can read/write
+    vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
+    vkutil::transition_image(cmd, _pingPongImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
 
-    effect.data.data1.x = static_cast<float>(_simulationStep);
-
-    // bind the background compute pipeline
     vkCmdBindPipeline(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, effect.pipeline);
 
-    // bind the descriptor set containing the draw image for the compute pipeline
-    vkCmdBindDescriptorSets(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _gradientPipelineLayout, 0, 1, &_drawImageDescriptors, 0, nullptr);
+    // 2. Select the correct descriptor set for this frame
+    uint32_t setIndex = _frameNumber % 2;
+    vkCmdBindDescriptorSets(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _gradientPipelineLayout, 0, 1, &_pingPongDescriptorSets[setIndex], 0, nullptr);
 
     vkCmdPushConstants(cmd, _gradientPipelineLayout, VK_SHADER_STAGE_COMPUTE_BIT, 0, sizeof(ComputePushConstants), &effect.data);
-    // execute the compute pipeline dispatch. We are using 16x16 workgroup size so we need to divide by it
     vkCmdDispatch(cmd, std::ceil(_drawExtent.width / 16.0), std::ceil(_drawExtent.height / 16.0), 1);
+
+    // 3. CRITICAL: Barrier to ensure compute writes are visible to the next stage
+    VkMemoryBarrier2 memBarrier = { .sType = VK_STRUCTURE_TYPE_MEMORY_BARRIER_2 };
+    memBarrier.srcStageMask = VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT;
+    memBarrier.srcAccessMask = VK_ACCESS_2_SHADER_WRITE_BIT;
+    memBarrier.dstStageMask = VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT | VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT;
+    memBarrier.dstAccessMask = VK_ACCESS_2_TRANSFER_READ_BIT | VK_ACCESS_2_SHADER_READ_BIT;
+
+    VkDependencyInfo depInfo = { .sType = VK_STRUCTURE_TYPE_DEPENDENCY_INFO };
+    depInfo.memoryBarrierCount = 1;
+    depInfo.pMemoryBarriers = &memBarrier;
+    vkCmdPipelineBarrier2(cmd, &depInfo);
 }
 
 
