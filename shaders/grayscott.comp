@@ -2,11 +2,14 @@
 
 layout (local_size_x = 16, local_size_y = 16) in;
 
-// Binding 0: The state from the previous frame
+// Binding 0: The sim state from the previous frame
 layout(rgba16f, set = 0, binding = 0) uniform readonly image2D inputImage;
 
-// Binding 1: The state being calculating now
+// Binding 1: The sim state being calculating now
 layout(rgba16f, set = 0, binding = 1) uniform writeonly image2D outputImage;
+
+// Binding 2: The pretty colors being written to the screen
+layout(rgba16f, set = 0, binding = 2) uniform writeonly image2D displayImage;
 
 // Push constants block
 layout(push_constant) uniform constants {
@@ -48,7 +51,15 @@ void main() {
             }
         }
         
+        // Write the sim state
         imageStore(outputImage, pos, vec4(A, B, 0.0, 1.0));
+        
+        vec3 colorBg = vec3(0.25, 0.0, 0.15); // Background chemical
+        vec3 colorFg = vec3(0.9, 0.2, 0.5);   // Foreground chemical  
+        float bVisual = clamp(B * 3.0, 0.0, 1.0); // Use the initial B value
+        vec3 finalColor = mix(colorBg, colorFg, bVisual);
+
+        imageStore(displayImage, pos, vec4(finalColor, 1.0));
     } 
     // SIMULATION STEP
     else {
@@ -71,20 +82,30 @@ void main() {
         sum += imageLoad(inputImage, get_pos(pos.x + 1, pos.y - 1)).xy * 0.05;
         sum += imageLoad(inputImage, get_pos(pos.x - 1, pos.y + 1)).xy * 0.05;
         sum += imageLoad(inputImage, get_pos(pos.x + 1, pos.y + 1)).xy * 0.05;
-
+        
         // Laplacian = weighted sum - current center
         vec2 lap = sum - vec2(A, B);
-
+        
         // Gray-Scott Formulas
         float reaction = A * B * B;
         float nextA = A + (DA * lap.x - reaction + FEED * (1.0 - A)) * DT;
         float nextB = B + (DB * lap.y + reaction - (KILL + FEED) * B) * DT;
-
+        
         // Clamp for stability
         nextA = clamp(nextA, 0.0, 1.0);
         nextB = clamp(nextB, 0.0, 1.0);
 
-        // Write the result to the OUTPUT image
+        // 1. Write the sim result to the OUTPUT simulation image
         imageStore(outputImage, pos, vec4(nextA, nextB, 0.0, 1.0));
+        
+        // 2. Translate the sim colors and write to DISPLAY image
+        vec3 colorBg = vec3(0.25, 0.0, 0.15); // Background chemical
+        vec3 colorFg = vec3(0.9, 0.2, 0.5);   // Foreground chemical
+        
+        // Increase the visual contrast of B slightly
+        float bVisual = clamp(nextB * 3.0, 0.0, 1.0); 
+        vec3 finalColor = mix(colorBg, colorFg, bVisual);
+
+        imageStore(displayImage, pos, vec4(finalColor, 1.0));
     }
 }

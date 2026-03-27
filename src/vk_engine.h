@@ -246,12 +246,9 @@ private:
 	// GrayScott simulation
 	int _simulationStep = 0;
 
-	AllocatedImage _pingPongImage; // The second buffer for simulation
+	AllocatedImage _simImageA; // Simulation State A
+	AllocatedImage _simImageB; // Simulation State B
 	VkDescriptorSet _pingPongDescriptorSets[2];
-
-	AllocatedImage& get_current_sim_image() {
-		return (_frameNumber % 2 == 0) ? _pingPongImage : _drawImage;
-	}
 
 };
 

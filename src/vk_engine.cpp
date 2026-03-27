@@ -229,7 +229,7 @@ void VulkanEngine::init_swapchain()
     rimg_allocinfo.usage = VMA_MEMORY_USAGE_GPU_ONLY;
     rimg_allocinfo.requiredFlags = VkMemoryPropertyFlags(VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT);
 
-    //allocate and create the image
+    //allocate and create the display image
     vmaCreateImage(_allocator, &rimg_info, &rimg_allocinfo, &_drawImage.image, &_drawImage.allocation, nullptr);
 
     //build a image-view for the draw image to use for rendering
@@ -262,15 +262,22 @@ void VulkanEngine::init_swapchain()
         vmaDestroyImage(_allocator, _depthImage.image, _depthImage.allocation);
         });
 
-    // Second image for ping-ponging
-    vmaCreateImage(_allocator, &rimg_info, &rimg_allocinfo, &_pingPongImage.image, &_pingPongImage.allocation, nullptr);
-    VkImageViewCreateInfo pingview_info = vkinit::imageview_create_info(_drawImage.imageFormat, _pingPongImage.image, VK_IMAGE_ASPECT_COLOR_BIT);
-    VK_CHECK(vkCreateImageView(_device, &pingview_info, nullptr, &_pingPongImage.imageView));
+    // Create the two simulation images
+    vmaCreateImage(_allocator, &rimg_info, &rimg_allocinfo, &_simImageA.image, &_simImageA.allocation, nullptr);
+    VkImageViewCreateInfo simAview_info = vkinit::imageview_create_info(_drawImage.imageFormat, _simImageA.image, VK_IMAGE_ASPECT_COLOR_BIT);
+    VK_CHECK(vkCreateImageView(_device, &simAview_info, nullptr, &_simImageA.imageView));
 
-    // Add to pingpong image to deletion queue
+    vmaCreateImage(_allocator, &rimg_info, &rimg_allocinfo, &_simImageB.image, &_simImageB.allocation, nullptr);
+    VkImageViewCreateInfo simBview_info = vkinit::imageview_create_info(_drawImage.imageFormat, _simImageB.image, VK_IMAGE_ASPECT_COLOR_BIT);
+    VK_CHECK(vkCreateImageView(_device, &simBview_info, nullptr, &_simImageB.imageView));
+
+    // Add simulation images to deletion queue
     _mainDeletionQueue.push_function([=]() {
-        vkDestroyImageView(_device, _pingPongImage.imageView, nullptr);
-        vmaDestroyImage(_allocator, _pingPongImage.image, _pingPongImage.allocation);
+        vkDestroyImageView(_device, _simImageA.imageView, nullptr);
+        vmaDestroyImage(_allocator, _simImageA.image, _simImageA.allocation);
+
+        vkDestroyImageView(_device, _simImageB.imageView, nullptr);
+        vmaDestroyImage(_allocator, _simImageB.image, _simImageB.allocation);
         });
 }
 
@@ -430,10 +437,10 @@ void VulkanEngine::init_sync_structures()
 
 void VulkanEngine::init_descriptors()
 {
-    //create a descriptor pool that will hold 10 sets with 1 image each
+    //create a descriptor pool that will hold 10 sets with 3 images each
     std::vector<DescriptorAllocatorGrowable::PoolSizeRatio> sizes =
     {
-        { VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1 },
+        { VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 3 },
         { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1 }
     };
 
@@ -442,8 +449,9 @@ void VulkanEngine::init_descriptors()
     //make descriptor set layouts
     {
         DescriptorLayoutBuilder builder;
-        builder.add_binding(0, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE); // Input
-        builder.add_binding(1, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE); // Output
+        builder.add_binding(0, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE); // Input Sim State
+        builder.add_binding(1, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE); // Output Sim State
+        builder.add_binding(2, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE); // Output Display Color
         _drawImageDescriptorLayout = builder.build(_device, VK_SHADER_STAGE_COMPUTE_BIT);
     }
     {
@@ -461,16 +469,18 @@ void VulkanEngine::init_descriptors()
     _pingPongDescriptorSets[0] = globalDescriptorAllocator.allocate(_device, _drawImageDescriptorLayout);
     _pingPongDescriptorSets[1] = globalDescriptorAllocator.allocate(_device, _drawImageDescriptorLayout);
 
-    // Set 0: Read from _drawImage, Write to _pingPongImage
+    // Set 0: Read from Sim A, Write math to Sim B, Write color to _drawImage
     DescriptorWriter writer;
-    writer.write_image(0, _drawImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
-    writer.write_image(1, _pingPongImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(0, _simImageA.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(1, _simImageB.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(2, _drawImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
     writer.update_set(_device, _pingPongDescriptorSets[0]);
 
-    // Set 1: Read from _pingPongImage, Write to _drawImage
+    // Set 1: Read from Sim B, Write math to Sim A, Write color to _drawImage
     writer.clear();
-    writer.write_image(0, _pingPongImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
-    writer.write_image(1, _drawImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(0, _simImageB.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(1, _simImageA.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
+    writer.write_image(2, _drawImage.imageView, VK_NULL_HANDLE, VK_IMAGE_LAYOUT_GENERAL, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE);
     writer.update_set(_device, _pingPongDescriptorSets[1]);
 
 
@@ -843,9 +853,8 @@ void VulkanEngine::cleanup()
 
 void VulkanEngine::draw()
 {
-	update_scene();
-    // wait until the gpu has finished rendering the last frame. Timeout of 1
-    // second
+    update_scene();
+    // wait until the gpu has finished rendering the last frame. Timeout of 1 second
     VK_CHECK(vkWaitForFences(_device, 1, &get_current_frame()._renderFence, true, 1000000000));
     get_current_frame()._deletionQueue.flush();
     get_current_frame()._frameDescriptors.clear_pools(_device);
@@ -854,24 +863,21 @@ void VulkanEngine::draw()
 
     //request image from the swapchain
     uint32_t swapchainImageIndex;
-   
+
     VkResult e = vkAcquireNextImageKHR(_device, _swapchain, 1000000000, get_current_frame()._swapchainSemaphore, nullptr, &swapchainImageIndex);
     if (e == VK_ERROR_OUT_OF_DATE_KHR) {
         resize_requested = true;
         return;
     }
 
-
-    //naming it cmd for shorter writing
     VkCommandBuffer cmd = get_current_frame()._mainCommandBuffer;
 
-    // now that we are sure that the commands finished executing, we can safely
-    // reset the command buffer to begin recording again.
+    // now that we are sure that the commands finished executing, we can safely reset the command buffer to begin recording again.
     VK_CHECK(vkResetCommandBuffer(cmd, 0));
 
     //begin the command buffer recording. We will use this command buffer exactly once, so we want to let vulkan know that
     VkCommandBufferBeginInfo cmdBeginInfo = vkinit::command_buffer_begin_info(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-    
+
     _drawExtent.height = std::min(_swapchainExtent.height, _drawImage.imageExtent.height) * renderScale;
     _drawExtent.width = std::min(_swapchainExtent.width, _drawImage.imageExtent.width) * renderScale;
 
@@ -884,18 +890,6 @@ void VulkanEngine::draw()
 
     // Inside draw()
     draw_background(cmd);
-
-    // Get which image was the output of the compute shader this frame
-    AllocatedImage& resultImage = get_current_sim_image();
-
-    // Transition the result image to TRANSFER_SRC
-    vkutil::transition_image(cmd, resultImage.image, VK_IMAGE_LAYOUT_GENERAL, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
-    vkutil::transition_image(cmd, _swapchainImages[swapchainImageIndex], VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-
-    // Copy from resultImage instead of _drawImage
-    vkutil::copy_image_to_image(cmd, resultImage.image, _swapchainImages[swapchainImageIndex], _drawExtent, _swapchainExtent);
-
-    //draw_geometry(cmd);
 
     // transition the draw image and the swapchain image into their correct transfer layouts
     vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_GENERAL, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
@@ -917,9 +911,6 @@ void VulkanEngine::draw()
     VK_CHECK(vkEndCommandBuffer(cmd));
 
     //prepare the submission to the queue. 
-    //we want to wait on the _presentSemaphore, as that semaphore is signaled when the swapchain is ready
-    //we will signal the _renderSemaphore, to signal that rendering has finished
-
     VkCommandBufferSubmitInfo cmdinfo = vkinit::command_buffer_submit_info(cmd);
 
     VkSemaphoreSubmitInfo waitInfo = vkinit::semaphore_submit_info(VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT_KHR, get_current_frame()._swapchainSemaphore);
@@ -928,13 +919,9 @@ void VulkanEngine::draw()
     VkSubmitInfo2 submit = vkinit::submit_info(&cmdinfo, &signalInfo, &waitInfo);
 
     // submit command buffer to the queue and execute it.
-    // _renderFence will now block until the graphic commands finish execution
     VK_CHECK(vkQueueSubmit2(_graphicsQueue, 1, &submit, get_current_frame()._renderFence));
 
     //prepare present
-    //this will put the image we just rendered to into the visible window.
-    //we want to wait on the _renderSemaphore for that, 
-    //as its necessary that drawing commands have finished before the image is displayed to the user
     VkPresentInfoKHR presentInfo = {};
     presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
     presentInfo.pNext = nullptr;
@@ -959,9 +946,10 @@ void VulkanEngine::draw_background(VkCommandBuffer cmd)
 {
     ComputeEffect& effect = backgroundEffects[currentBackgroundEffect];
 
-    // 1. Transition BOTH images to GENERAL layout so compute can read/write
+    // 1. Transition ALL THREE images to GENERAL layout so compute can read/write
     vkutil::transition_image(cmd, _drawImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
-    vkutil::transition_image(cmd, _pingPongImage.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
+    vkutil::transition_image(cmd, _simImageA.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
+    vkutil::transition_image(cmd, _simImageB.image, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_GENERAL);
 
     vkCmdBindPipeline(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, effect.pipeline);
 
