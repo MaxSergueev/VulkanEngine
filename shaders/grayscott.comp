@@ -13,21 +13,47 @@ layout(rgba16f, set = 0, binding = 2) uniform writeonly image2D displayImage;
 
 // Push constants block
 layout(push_constant) uniform constants {
-    vec4 data1;  // [frame_number, screen_width, screen_height, time_factor]
+    vec4 data1;  // [frame_number, foreground_B, screen_height, time_factor]
     vec4 data2;  // [DA, DB, FEED, KILL]
-    vec4 data3;  // [DT, SIMULATION_STEPS, unused, unused]
-    vec4 data4;  // [INITIAL_SEED_OFFSET, unused, unused, unused]
+    vec4 data3;  // [DT, SIMULATION_STEPS, background_R, background_G]
+    vec4 data4;  // [INITIAL_SEED_OFFSET, background_B, foreground_R, foreground_G]
 } PushConstants;
 
 // PARAMETERS
 #define FRAME_NUMBER uint(PushConstants.data1.x)
-#define SCREEN_WIDTH uint(PushConstants.data1.y)
-#define SCREEN_HEIGHT uint(PushConstants.data1.z)
+#define SCREEN_WIDTH uint(1700)
+#define SCREEN_HEIGHT uint(900)
 #define DA PushConstants.data2.x
 #define DB PushConstants.data2.y
 #define FEED PushConstants.data2.z
 #define KILL PushConstants.data2.w
 #define DT PushConstants.data3.x
+#define SEED_OFFSET PushConstants.data4.x
+
+// COLOR PARAMETERS FROM PUSH CONSTANTS
+#define BG_COLOR_R PushConstants.data3.z
+#define BG_COLOR_G PushConstants.data3.w
+#define BG_COLOR_B PushConstants.data4.y
+#define FG_COLOR_R PushConstants.data4.z
+#define FG_COLOR_G PushConstants.data4.w
+#define FG_COLOR_B PushConstants.data1.y
+
+// Simple pseudo-random function using seed
+float random(float seed) {
+    return fract(sin(seed * 12.9898) * 43758.5453);
+}
+
+vec2 randomCirclePos(int index, float seedOffset) {
+    float baseSeed = seedOffset + float(index) * 17.0;
+    float x = random(baseSeed) * float(SCREEN_WIDTH);
+    float y = random(baseSeed + 1.0) * float(SCREEN_HEIGHT);
+    return vec2(x, y);
+}
+
+float randomCircleRadius(int index, float seedOffset) {
+    float baseSeed = seedOffset + float(index) * 23.0 + 100.0;
+    return 5.0 + random(baseSeed) * 15.0; // Radius between 5 and 20
+}
 
 // Boundary helper - toroidal wrap
 ivec2 get_pos(int x, int y) {
@@ -43,10 +69,12 @@ void main() {
         float A = 1.0;
         float B = 0.0;
 
-        // Seed some circles of Chemical B
+        // Seed random circles of Chemical B using the seed offset
         for (int i = 0; i < 5; i++) {
-            vec2 seed_pos = vec2(SCREEN_WIDTH/5 * (i+1), SCREEN_HEIGHT/2);
-            if (distance(vec2(pos), seed_pos) < 10.0) {
+            vec2 seed_pos = randomCirclePos(i, SEED_OFFSET);
+            float seed_radius = randomCircleRadius(i, SEED_OFFSET);
+            
+            if (distance(vec2(pos), seed_pos) < seed_radius) {
                 B = 1.0;
             }
         }
@@ -54,8 +82,10 @@ void main() {
         // Write the sim state
         imageStore(outputImage, pos, vec4(A, B, 0.0, 1.0));
         
-        vec3 colorBg = vec3(0.25, 0.0, 0.15); // Background chemical
-        vec3 colorFg = vec3(0.9, 0.2, 0.5);   // Foreground chemical  
+        // Get colors from push constants
+        vec3 colorBg = vec3(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B);
+        vec3 colorFg = vec3(FG_COLOR_R, FG_COLOR_G, FG_COLOR_B);
+        
         float bVisual = clamp(B * 3.0, 0.0, 1.0); // Use the initial B value
         vec3 finalColor = mix(colorBg, colorFg, bVisual);
 
@@ -98,9 +128,9 @@ void main() {
         // 1. Write the sim result to the OUTPUT simulation image
         imageStore(outputImage, pos, vec4(nextA, nextB, 0.0, 1.0));
         
-        // 2. Translate the sim colors and write to DISPLAY image
-        vec3 colorBg = vec3(0.25, 0.0, 0.15); // Background chemical
-        vec3 colorFg = vec3(0.9, 0.2, 0.5);   // Foreground chemical
+        // 2. Get colors from push constants and write to DISPLAY image
+        vec3 colorBg = vec3(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B);
+        vec3 colorFg = vec3(FG_COLOR_R, FG_COLOR_G, FG_COLOR_B);
         
         // Increase the visual contrast of B slightly
         float bVisual = clamp(nextB * 3.0, 0.0, 1.0); 
@@ -109,3 +139,4 @@ void main() {
         imageStore(displayImage, pos, vec4(finalColor, 1.0));
     }
 }
+
