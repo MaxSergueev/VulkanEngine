@@ -1099,6 +1099,8 @@ void VulkanEngine::run()
     // Simple simulation toggle state
     static bool simulationActive = false;
 
+    static bool showGui = true;
+
     // main loop
     while (!bQuit)
     {
@@ -1119,6 +1121,9 @@ void VulkanEngine::run()
                 {
                     stop_rendering = false;
                 }
+            }
+            if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_g) {
+                showGui = !showGui;
             }
 
             mainCamera.processSDLEvent(e);
@@ -1143,107 +1148,116 @@ void VulkanEngine::run()
 
         ImGui::NewFrame();
 
-        if (ImGui::Begin("Gray-Scott Reaction Diffusion")) {
-            ComputeEffect& selected = backgroundEffects[0];
+        if (showGui) {
+            if (ImGui::Begin("Gray-Scott Reaction Diffusion")) {
+                ComputeEffect& selected = backgroundEffects[0];
 
-            // Simple toggle button for simulation
-            const char* buttonText = simulationActive ? "Reset Simulation" : "Start Simulation";
-            if (ImGui::Button(buttonText)) {
-                simulationActive = !simulationActive;
+                // Simple toggle button for simulation
+                const char* buttonText = simulationActive ? "Reset Simulation" : "Start Simulation";
+                if (ImGui::Button(buttonText)) {
+                    simulationActive = !simulationActive;
+                }
+
+                // Set frame number based on toggle state
+                selected.data.data1.x = simulationActive ? 1.0f : 0.0f;
+
+                ImGui::Separator();
+
+                ImGui::SliderFloat("Render Scale", &renderScale, 0.3f, 1.f);
+
+                ImGui::Separator();
+                ImGui::Text("Simulation Parameters");
+
+                // Diffusion rates
+                ImGui::SliderFloat("DA (Diffusion A)", &selected.data.data2.x, 0.5f, 2.0f);
+                ImGui::SliderFloat("DB (Diffusion B)", &selected.data.data2.y, 0.1f, 1.0f);
+
+                // Chemical reaction rates
+                ImGui::SliderFloat("Feed Rate", &selected.data.data2.z, 0.01f, 0.1f);
+                ImGui::SliderFloat("Kill Rate", &selected.data.data2.w, 0.04f, 0.08f);
+
+                ImGui::Separator();
+                ImGui::Text("Simulation Settings");
+
+                // Time step and simulation steps
+                ImGui::SliderFloat("Time Step (DT)", &selected.data.data3.x, 0.5f, 2.0f);
+                ImGui::SliderFloat("Simulation Steps", &selected.data.data3.y, 1.0f, 50.0f);
+
+                // Seed offset for initial conditions
+                ImGui::SliderFloat("Random Seed", &selected.data.data4.x, 5.0f, 50.0f);
+
+                ImGui::Separator();
+                ImGui::Text("Visual Colors");
+
+                // Color pickers that UPDATE the push constants directly
+                if (ImGui::ColorEdit3("Background Color", backgroundColorBg)) {
+                    // Store background color RGB in unused slots of data3 and data4
+                    selected.data.data3.z = backgroundColorBg[0]; // Background R
+                    selected.data.data3.w = backgroundColorBg[1]; // Background G
+                    selected.data.data4.y = backgroundColorBg[2]; // Background B
+                }
+
+                if (ImGui::ColorEdit3("Foreground Color", backgroundColorFg)) {
+                    // Store foreground color RGB in unused slots of data4 and data1
+                    selected.data.data4.z = backgroundColorFg[0]; // Foreground R
+                    selected.data.data4.w = backgroundColorFg[1]; // Foreground G
+                    selected.data.data1.y = backgroundColorFg[2]; // Foreground B (reusing screen width slot)
+                }
+
+                // Initialize colors in push constants if not set
+                if (selected.data.data3.z == 0.0f && selected.data.data3.w == 0.0f) {
+                    selected.data.data3.z = backgroundColorBg[0]; // Background R
+                    selected.data.data3.w = backgroundColorBg[1]; // Background G  
+                    selected.data.data4.y = backgroundColorBg[2]; // Background B
+                    selected.data.data4.z = backgroundColorFg[0]; // Foreground R
+                    selected.data.data4.w = backgroundColorFg[1]; // Foreground G
+                    selected.data.data1.y = backgroundColorFg[2]; // Foreground B
+                }
+
+                ImGui::Separator();
+                ImGui::Text("Preset Configurations");
+
+                if (ImGui::Button("Mitosis (Dividing Cells)")) {
+                    // Spots that grow and divide continually
+                    selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.036f, 0.065f);
+                    selected.data.data3.x = 1.0f;
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Solitons (Moving Bugs)")) {
+                    // Highly dynamic, moving spots that bounce off each other
+                    selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.014f, 0.050f);
+                    selected.data.data3.x = 1.0f;
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Stable Mazes")) {
+                    // Slowly forms a static, brain-like labyrinth
+                    selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.029f, 0.057f);
+                    selected.data.data3.x = 1.0f;
+                }
+
+                if (ImGui::Button("Holes")) {
+                    // The inverse of spots: empty spaces growing in a solid background
+                    selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.039f, 0.058f);
+                    selected.data.data3.x = 1.0f;
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Chaos (Boiling)")) {
+                    // An unstable, constantly flickering and morphing texture
+                    selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.026f, 0.051f);
+                    selected.data.data3.x = 1.0f;
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Reset Default")) {
+                    // Your original expanding coral/spot pattern
+                    selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.055f, 0.063f);
+                    selected.data.data3.x = 1.0f;
+                    selected.data.data3.y = 30.0f;
+                    selected.data.data4.x = 21.0f;
+                }
             }
-
-            // Set frame number based on toggle state
-            selected.data.data1.x = simulationActive ? 1.0f : 0.0f;
-
-            ImGui::Separator();
-
-            ImGui::SliderFloat("Render Scale", &renderScale, 0.3f, 1.f);
-
-            ImGui::Separator();
-            ImGui::Text("Simulation Parameters");
-
-            // Diffusion rates
-            ImGui::SliderFloat("DA (Diffusion A)", &selected.data.data2.x, 0.5f, 2.0f);
-            ImGui::SliderFloat("DB (Diffusion B)", &selected.data.data2.y, 0.1f, 1.0f);
-
-            // Chemical reaction rates
-            ImGui::SliderFloat("Feed Rate", &selected.data.data2.z, 0.01f, 0.1f);
-            ImGui::SliderFloat("Kill Rate", &selected.data.data2.w, 0.04f, 0.08f);
-
-            ImGui::Separator();
-            ImGui::Text("Simulation Settings");
-
-            // Time step and simulation steps
-            ImGui::SliderFloat("Time Step (DT)", &selected.data.data3.x, 0.5f, 2.0f);
-            ImGui::SliderFloat("Simulation Steps", &selected.data.data3.y, 1.0f, 50.0f);
-
-            // Seed offset for initial conditions
-            ImGui::SliderFloat("Random Seed", &selected.data.data4.x, 5.0f, 50.0f);
-
-            ImGui::Separator();
-            ImGui::Text("Visual Colors");
-
-            // Color pickers that UPDATE the push constants directly
-            if (ImGui::ColorEdit3("Background Color", backgroundColorBg)) {
-                // Store background color RGB in unused slots of data3 and data4
-                selected.data.data3.z = backgroundColorBg[0]; // Background R
-                selected.data.data3.w = backgroundColorBg[1]; // Background G
-                selected.data.data4.y = backgroundColorBg[2]; // Background B
-            }
-
-            if (ImGui::ColorEdit3("Foreground Color", backgroundColorFg)) {
-                // Store foreground color RGB in unused slots of data4 and data1
-                selected.data.data4.z = backgroundColorFg[0]; // Foreground R
-                selected.data.data4.w = backgroundColorFg[1]; // Foreground G
-                selected.data.data1.y = backgroundColorFg[2]; // Foreground B (reusing screen width slot)
-            }
-
-            // Initialize colors in push constants if not set
-            if (selected.data.data3.z == 0.0f && selected.data.data3.w == 0.0f) {
-                selected.data.data3.z = backgroundColorBg[0]; // Background R
-                selected.data.data3.w = backgroundColorBg[1]; // Background G  
-                selected.data.data4.y = backgroundColorBg[2]; // Background B
-                selected.data.data4.z = backgroundColorFg[0]; // Foreground R
-                selected.data.data4.w = backgroundColorFg[1]; // Foreground G
-                selected.data.data1.y = backgroundColorFg[2]; // Foreground B
-            }
-
-            ImGui::Separator();
-            ImGui::Text("Preset Configurations");
-
-            if (ImGui::Button("Coral Growth")) {
-                selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.055f, 0.062f);
-                selected.data.data3.x = 1.0f;
-            }
-            ImGui::SameLine();
-            if (ImGui::Button("Fingerprints")) {
-                selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.037f, 0.06f);
-                selected.data.data3.x = 1.0f;
-            }
-            ImGui::SameLine();
-            if (ImGui::Button("JellyFish")) {
-                selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.014f, 0.054f);
-                selected.data.data3.x = 1.0f;
-            }
-
-            if (ImGui::Button("Worms")) {
-                selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.078f, 0.061f);
-                selected.data.data3.x = 1.0f;
-            }
-            ImGui::SameLine();
-            if (ImGui::Button("Maze")) {
-                selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.029f, 0.057f);
-                selected.data.data3.x = 1.0f;
-            }
-            ImGui::SameLine();
-            if (ImGui::Button("Reset Default")) {
-                selected.data.data2 = glm::vec4(1.0f, 0.45f, 0.055f, 0.063f);
-                selected.data.data3.x = 1.0f;
-                selected.data.data3.y = 30.0f;
-                selected.data.data4.x = 21.0f;
-            }
+        
+            ImGui::End();
         }
-        ImGui::End();
 
         ImGui::Render();
 
